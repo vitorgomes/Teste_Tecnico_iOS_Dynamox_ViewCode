@@ -132,7 +132,7 @@ class QuizViewController: UIViewController {
                     self?.quizViewModel.incrementQuestionCounter()
                     
                     if self?.quizViewModel.shouldNavigateToScoreViewController() ?? false {
-                        self?.quizViewModel.savePlayer(username: (self?.quizViewModel.userName)!, score: (self?.quizViewModel.score)!) // TODO: Treat the safe way later. Forced now only for tests purposes
+                        self?.quizViewModel.savePlayer(username: self?.quizViewModel.userName ?? "", score: self?.quizViewModel.score ?? 0) // TODO: Treat the safe way later. Forced now only for tests purposes
                         self?.navigateToScoreViewController()
                     } else {
                         self?.fetchQuestion()

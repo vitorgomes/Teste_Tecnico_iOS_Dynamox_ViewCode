@@ -15,7 +15,7 @@ class QuizViewModel {
     private var question: Question?
     private(set) var userName: String
     private var questionCounter = 0
-    private(set) var score = 0
+    private(set) var score: Int = 0
     
     init(userName: String) {
         self.userName = userName

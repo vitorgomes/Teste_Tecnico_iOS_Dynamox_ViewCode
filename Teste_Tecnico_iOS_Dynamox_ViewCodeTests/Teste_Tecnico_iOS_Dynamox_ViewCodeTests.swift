@@ -10,10 +10,10 @@ import XCTest
 
 final class Teste_Tecnico_iOS_Dynamox_ViewCodeTests: XCTestCase {
     
-    var quizManager: QuizManager!
+    var quizManager: QuizManagerProtocol!
 
     override func setUpWithError() throws {
-        quizManager = QuizManager()
+        quizManager = QuizManagerStub()
     }
 
     override func tearDownWithError() throws {
