@@ -16,7 +16,6 @@ class QuizManager {
             completion(nil, error)
             return
         }
-        // let url = URL(string: "\(baseURL)/question")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
@@ -71,6 +70,7 @@ class QuizManager {
                 
                 // Print for tests purposes, to registry all the activity on console
                 print("Chosen option: \(answer) | Result: \(response.result ? "CORRECT" : "INCORRECT")")
+                print("***")
             } catch {
                 completion(nil, error)
             }

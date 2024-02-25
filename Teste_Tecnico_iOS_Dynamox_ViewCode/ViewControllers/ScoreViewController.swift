@@ -46,6 +46,12 @@ class ScoreViewController: UIViewController {
         
         setupViews()
         
+        let players = scoreViewModel.fetchPlayers() ?? []
+        print("*** PLAYERS SCORES TABLE ***")
+        for player in players {
+            print("Username: \(player.userName!), Score: \(player.score)") // TODO: Treat the safe way later. Forced now only for tests purposes
+        }
+        
         navigationItem.hidesBackButton = true
     }
     

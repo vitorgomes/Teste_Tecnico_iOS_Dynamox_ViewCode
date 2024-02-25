@@ -130,7 +130,9 @@ class QuizViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     self?.resultLabel.isHidden = true
                     self?.quizViewModel.incrementQuestionCounter()
+                    
                     if self?.quizViewModel.shouldNavigateToScoreViewController() ?? false {
+                        self?.quizViewModel.savePlayer(username: (self?.quizViewModel.userName)!, score: (self?.quizViewModel.score)!) // TODO: Treat the safe way later. Forced now only for tests purposes
                         self?.navigateToScoreViewController()
                     } else {
                         self?.fetchQuestion()

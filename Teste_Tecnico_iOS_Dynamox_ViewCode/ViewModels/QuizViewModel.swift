@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class QuizViewModel {
     private let quizManager = QuizManager()
@@ -33,6 +34,8 @@ class QuizViewModel {
             } else if let question = question {
                 self.question = question
                 completion(question)
+                print("***")
+                print("Question number (in game): \(questionCounter + 1)") // Prints for tests purposes, to registry all the activity on console
             }
         }
     }
@@ -63,5 +66,26 @@ class QuizViewModel {
     
     func incrementQuestionCounter() {
         questionCounter += 1
+    }
+    
+    func savePlayer(username: String, score: Int) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            print("Error getting AppDelegate")
+            return
+        }
+        
+        let context = appDelegate.persistentContainer.viewContext
+        let playerEntity = NSEntityDescription.entity(forEntityName: "Player", in: context)!
+        let player = NSManagedObject(entity: playerEntity, insertInto: context)
+        
+        player.setValue(username, forKeyPath: "userName")
+        player.setValue(score, forKeyPath: "score")
+        
+        do {
+            try context.save()
+            print("Player saved successfully!")
+        } catch let error as NSError {
+            print("Error saving player: \(error), \(error.userInfo)")
+        }
     }
 }
