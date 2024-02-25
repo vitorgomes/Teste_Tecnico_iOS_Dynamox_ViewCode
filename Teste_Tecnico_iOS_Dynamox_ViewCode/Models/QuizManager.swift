@@ -27,6 +27,10 @@ class QuizManager {
             do {
                 let question = try JSONDecoder().decode(Question.self, from: data)
                 completion(question, nil)
+                
+                // Prints for tests purposes, to registry all the activity on console
+                print("Question ID and Statement: \(question.id) - \(question.statement)")
+                print("Question Options: \(question.options)")
             } catch {
                 completion(nil, error)
             }
@@ -64,6 +68,9 @@ class QuizManager {
             do {
                 let response = try JSONDecoder().decode(AnswerResponse.self, from: data)
                 completion(response.result, nil)
+                
+                // Print for tests purposes, to registry all the activity on console
+                print("Chosen option: \(answer) | Result: \(response.result ? "CORRECT" : "INCORRECT")")
             } catch {
                 completion(nil, error)
             }
