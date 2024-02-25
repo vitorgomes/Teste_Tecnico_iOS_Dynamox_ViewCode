@@ -9,29 +9,7 @@ import UIKit
 
 class QuizViewController: UIViewController {
     
-    let quizManager = QuizManager()
-    
-    var userName: String?
-    var question: Question?
-    var questionCounter = 0
-    var score = 0
-    
-//    private let activityIndicator: UIActivityIndicatorView = {
-//        let activityIndicator = UIActivityIndicatorView()
-//
-//        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        return activityIndicator
-//    }()
-//    
-//    private let backgroundView: UIView = {
-//        let backgroundView = UIView()
-//        
-//        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-//        backgroundView.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        return backgroundView
-//    }()
+    private let quizViewModel: QuizViewModel
     
     private let questionLabel: UILabel = {
         let questionLabel = UILabel()
@@ -73,7 +51,16 @@ class QuizViewController: UIViewController {
         
         return resultLabel
     }()
-
+    
+    init(viewModel: QuizViewModel) {
+        self.quizViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,10 +75,6 @@ class QuizViewController: UIViewController {
         view.addSubview(optionsPickerView)
         view.addSubview(submitButton)
         view.addSubview(resultLabel)
-//        view.addSubview(activityIndicator)
-//        view.addSubview(backgroundView)
-//        
-//        view.insertSubview(backgroundView, belowSubview: activityIndicator)
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
@@ -113,88 +96,53 @@ class QuizViewController: UIViewController {
             
             resultLabel.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 16),
             resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            
-//            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            
-//            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-//            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         optionsPickerView.dataSource = self
         optionsPickerView.delegate = self
     }
     
-//    func startAnimatingActivityIndicator() {
-//        activityIndicator.startAnimating()
-//        backgroundView.isHidden = false
-//    }
-//    
-//    func stopAnimatingActivityIndicator() {
-//        activityIndicator.stopAnimating()
-//        backgroundView.isHidden = true
-//    }
-    
-    func fetchQuestion() {
-        // startAnimatingActivityIndicator()
-        
-        quizManager.fetchQuestion { [weak self] question, error in
+    private func fetchQuestion() {
+        quizViewModel.fetchQuestion { [weak self] question in
             guard let self = self else { return }
-            
-            if let error = error {
-                print("Error fetching question: \(error)")
-            } else if let question = question {
+            if let question = question {
                 DispatchQueue.main.async {
-                    self.question = question
                     self.questionLabel.text = question.statement
                     self.optionsPickerView.reloadAllComponents()
                 }
             }
         }
-        // stopAnimatingActivityIndicator()
     }
     
     @objc private func submitButtonTapped() {
-        // startAnimatingActivityIndicator()
-        
-        guard let question = question else { return }
         let selectedOptionIndex = optionsPickerView.selectedRow(inComponent: 0)
-        let selectedOption = question.options[selectedOptionIndex]
+        guard let selectedOption = quizViewModel.currentQuestion?.options[selectedOptionIndex] else { return }
         
-        quizManager.submitAnswer(questionId: question.id, answer: selectedOption) { [weak self] result, error in
-            if let error = error {
-                print("Error submiting answer: \(error)")
-            } else if let result = result {
-                DispatchQueue.main.async {
-                    self?.resultLabel.isHidden = false
-                    self?.resultLabel.text = result ? "Resposta correta!" : "Resposta incorreta."
-                    
-                    if result {
-                        self?.score += 1
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self?.resultLabel.isHidden = true
-                        self?.questionCounter += 1
-                        if self?.questionCounter == 10 {
-                            self?.navigateToScoreViewController()
-                        } else {
-                            self?.fetchQuestion()
-                        }
+        quizViewModel.submitAnswer(answer: selectedOption) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.resultLabel.isHidden = false
+                self?.resultLabel.text = result ? "Resposta correta!" : "Resposta incorreta."
+                
+                if result {
+                    self?.quizViewModel.incrementScore()
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self?.resultLabel.isHidden = true
+                    self?.quizViewModel.incrementQuestionCounter()
+                    if self?.quizViewModel.shouldNavigateToScoreViewController() ?? false {
+                        self?.navigateToScoreViewController()
+                    } else {
+                        self?.fetchQuestion()
                     }
                 }
             }
         }
-        // stopAnimatingActivityIndicator()
     }
     
-    func navigateToScoreViewController() {
-        let scoreViewController = ScoreViewController()
-        
-        scoreViewController.userName = userName
-        scoreViewController.score = score
+    private func navigateToScoreViewController() {
+        let scoreViewModel = ScoreViewModel(userName: quizViewModel.userName, score: quizViewModel.score)
+        let scoreViewController = ScoreViewController(viewModel: scoreViewModel)
         navigationController?.pushViewController(scoreViewController, animated: true)
     }
 }
@@ -205,10 +153,10 @@ extension QuizViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return question?.options.count ?? 0
+        return quizViewModel.currentQuestion?.options.count ?? 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return question?.options[row]
+        return quizViewModel.currentQuestion?.options[row]
     }
 }

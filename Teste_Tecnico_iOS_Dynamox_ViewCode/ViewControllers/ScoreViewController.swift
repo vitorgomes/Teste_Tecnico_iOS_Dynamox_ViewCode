@@ -8,9 +8,8 @@
 import UIKit
 
 class ScoreViewController: UIViewController {
-    
-    var userName: String?
-    var score: Int?
+
+    private let scoreViewModel: ScoreViewModel
     
     private let scoreLabel: UILabel = {
         let scoreLabel = UILabel()
@@ -32,21 +31,28 @@ class ScoreViewController: UIViewController {
         
         return restartButton
     }()
-
+    
+    init(viewModel: ScoreViewModel) {
+        self.scoreViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
+        
+        navigationItem.hidesBackButton = true
     }
     
     private func setupViews() {
         view.backgroundColor = .white
         
-        if let userName = userName, let score = score {
-            scoreLabel.text = "\(userName) acertou \(score) perguntas"
-        } else {
-            scoreLabel.text = "Nome e pontuação não encontrados"
-        }
+        scoreLabel.text = "\(scoreViewModel.userName) acertou \(scoreViewModel.score) perguntas"
         
         view.addSubview(scoreLabel)
         view.addSubview(restartButton)

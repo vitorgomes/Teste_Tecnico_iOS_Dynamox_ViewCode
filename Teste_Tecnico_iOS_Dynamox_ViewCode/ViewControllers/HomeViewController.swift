@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    private let homeViewModel = HomeViewModel()
+    
     private let userNameTextField: UITextField = {
         let userNameTextField = UITextField()
         
@@ -63,9 +65,10 @@ class HomeViewController: UIViewController {
     @objc private func startButtonTapped() {
         guard let userName = userNameTextField.text else { return }
         
-        let quizViewController = QuizViewController()
-        quizViewController.userName = userName
-        navigationController?.pushViewController(quizViewController, animated: true)
+        homeViewModel.userName = userName
+        homeViewModel.startQuiz { [weak self] quizViewController in
+            self?.navigationController?.pushViewController(quizViewController, animated: true)
+        }
     }
 }
 
