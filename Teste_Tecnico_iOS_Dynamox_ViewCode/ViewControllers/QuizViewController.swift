@@ -11,6 +11,24 @@ class QuizViewController: UIViewController {
     
     private let quizViewModel: QuizViewModel
     
+    private let loadingIndicatorView: UIActivityIndicatorView = {
+        let loadingIndicatorView = UIActivityIndicatorView(style: .large)
+        
+        loadingIndicatorView.color = .white
+        loadingIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return loadingIndicatorView
+    }()
+    
+    private let loadingBackgroundView: UIView = {
+        let loadingBackgroundView = UIView()
+        
+        loadingBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        loadingBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return loadingBackgroundView
+    }()
+    
     private let questionLabel: UILabel = {
         let questionLabel = UILabel()
         
@@ -72,6 +90,8 @@ class QuizViewController: UIViewController {
         view.addSubview(optionsPickerView)
         view.addSubview(submitButton)
         view.addSubview(resultLabel)
+        view.addSubview(loadingIndicatorView)
+        view.addSubview(loadingBackgroundView)
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
@@ -92,20 +112,36 @@ class QuizViewController: UIViewController {
             submitButton.widthAnchor.constraint(equalToConstant: submitButtonWidth),
             
             resultLabel.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 16),
-            resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            loadingBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loadingBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        loadingBackgroundView.isHidden = true
+        
+        loadingIndicatorView.startAnimating()
+        loadingIndicatorView.isHidden = true
         
         optionsPickerView.dataSource = self
         optionsPickerView.delegate = self
     }
     
     private func fetchQuestion() {
+        showLoadingIndicator()
+        
         quizViewModel.fetchQuestion { [weak self] question in
             guard let self = self else { return }
             if let question = question {
                 DispatchQueue.main.async {
                     self.questionLabel.text = question.statement
                     self.optionsPickerView.reloadAllComponents()
+                    self.hideLoadingIndicator()
                 }
             }
         }
@@ -143,6 +179,19 @@ class QuizViewController: UIViewController {
         let scoreViewModel = ScoreViewModel(userName: quizViewModel.userName, score: quizViewModel.score)
         let scoreViewController = ScoreViewController(viewModel: scoreViewModel)
         navigationController?.pushViewController(scoreViewController, animated: true)
+    }
+    
+    private func showLoadingIndicator() {
+        loadingBackgroundView.isHidden = false
+        loadingIndicatorView.isHidden = false
+        view.isUserInteractionEnabled = false
+    }
+    
+    private func hideLoadingIndicator() {
+        loadingBackgroundView.alpha = 1.0
+        loadingBackgroundView.isHidden = true
+        loadingIndicatorView.isHidden = true
+        view.isUserInteractionEnabled = true
     }
 }
 
