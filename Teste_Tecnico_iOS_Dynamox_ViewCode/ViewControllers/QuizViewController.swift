@@ -32,11 +32,8 @@ class QuizViewController: UIViewController {
     private let submitButton: UIButton = {
         let submitButton = UIButton(type: .system)
         
-        submitButton.setTitle("Responder", for: .normal)
-        submitButton.setTitleColor(.white, for: .normal)
-        submitButton.backgroundColor = UIColor.systemBlue
+        submitButton.systemBlueBackgroundWhiteTitleStyle(title: "Responder")
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
-        submitButton.translatesAutoresizingMaskIntoConstraints = false
         
         return submitButton
     }()

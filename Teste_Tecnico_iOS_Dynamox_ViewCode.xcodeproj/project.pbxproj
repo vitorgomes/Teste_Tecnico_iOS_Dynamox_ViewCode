@@ -11,6 +11,7 @@
 		E706094D2B8B9C16007F404E /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706094C2B8B9C16007F404E /* ScoreViewModel.swift */; };
 		E706094F2B8BB071007F404E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706094E2B8BB070007F404E /* HomeViewModel.swift */; };
 		E73262C02B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73262BF2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift */; };
+		E7481C562B8C075D00219F21 /* UIButtonCustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7481C552B8C075D00219F21 /* UIButtonCustomStyle.swift */; };
 		E7675E382B8BD55C00E372D1 /* ScoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7675E362B8BD55C00E372D1 /* ScoreDataModel.xcdatamodeld */; };
 		E7946C8E2B8A498400AEA7B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7946C8D2B8A498400AEA7B0 /* AppDelegate.swift */; };
 		E7946C902B8A498400AEA7B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7946C8F2B8A498400AEA7B0 /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 		E706094E2B8BB070007F404E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E73262BD2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Teste_Tecnico_iOS_Dynamox_ViewCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73262BF2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift; sourceTree = "<group>"; };
+		E7481C552B8C075D00219F21 /* UIButtonCustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonCustomStyle.swift; sourceTree = "<group>"; };
 		E7675E372B8BD55C00E372D1 /* ScoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScoreData.xcdatamodel; sourceTree = "<group>"; };
 		E7946C8A2B8A498400AEA7B0 /* Teste_Tecnico_iOS_Dynamox_ViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teste_Tecnico_iOS_Dynamox_ViewCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7946C8D2B8A498400AEA7B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 			path = Teste_Tecnico_iOS_Dynamox_ViewCodeTests;
 			sourceTree = "<group>";
 		};
+		E7481C572B8C076900219F21 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				E7481C552B8C075D00219F21 /* UIButtonCustomStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		E7675E392B8BD56500E372D1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 				E706094B2B8B860D007F404E /* ViewModels */,
 				E794B3882B8A672E00E797C3 /* ViewControllers */,
 				E7675E392B8BD56500E372D1 /* Data */,
+				E7481C572B8C076900219F21 /* Styles */,
 				E7946C962B8A498700AEA7B0 /* Assets.xcassets */,
 				E7946C982B8A498700AEA7B0 /* LaunchScreen.storyboard */,
 				E7946C9B2B8A498700AEA7B0 /* Info.plist */,
@@ -270,6 +281,7 @@
 				E7946C922B8A498400AEA7B0 /* HomeViewController.swift in Sources */,
 				E706094F2B8BB071007F404E /* HomeViewModel.swift in Sources */,
 				E7F119CA2B8BFC4B000DE918 /* QuizManagerStub.swift in Sources */,
+				E7481C562B8C075D00219F21 /* UIButtonCustomStyle.swift in Sources */,
 				E706094D2B8B9C16007F404E /* ScoreViewModel.swift in Sources */,
 				E794B38F2B8A683800E797C3 /* AnswerResponse.swift in Sources */,
 				E7675E382B8BD55C00E372D1 /* ScoreDataModel.xcdatamodeld in Sources */,

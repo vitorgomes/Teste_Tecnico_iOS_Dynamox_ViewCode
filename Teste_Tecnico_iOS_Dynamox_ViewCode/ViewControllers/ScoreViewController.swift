@@ -23,11 +23,8 @@ class ScoreViewController: UIViewController {
     private let restartButton: UIButton = {
         let restartButton = UIButton(type: .system)
         
-        restartButton.setTitle("Reiniciar", for: .normal)
-        restartButton.setTitleColor(.white, for: .normal)
-        restartButton.backgroundColor = UIColor.systemBlue
+        restartButton.systemBlueBackgroundWhiteTitleStyle(title: "Reiniciar")
         restartButton.addTarget(self, action: #selector(restartButtonTapped), for: .touchUpInside)
-        restartButton.translatesAutoresizingMaskIntoConstraints = false
         
         return restartButton
     }()

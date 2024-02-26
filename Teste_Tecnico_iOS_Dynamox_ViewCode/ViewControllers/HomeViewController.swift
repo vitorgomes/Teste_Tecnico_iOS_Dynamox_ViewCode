@@ -24,11 +24,8 @@ class HomeViewController: UIViewController {
     private let startButton: UIButton = {
         let startButton = UIButton(type: .system)
         
-        startButton.setTitle("Iniciar", for: .normal)
-        startButton.setTitleColor(.white, for: .normal)
-        startButton.backgroundColor = UIColor.systemBlue
+        startButton.systemBlueBackgroundWhiteTitleStyle(title: "Iniciar")
         startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
-        startButton.translatesAutoresizingMaskIntoConstraints = false
         
         return startButton
     }()
