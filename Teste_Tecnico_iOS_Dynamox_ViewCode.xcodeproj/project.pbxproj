@@ -10,6 +10,7 @@
 		E706094A2B8B8606007F404E /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70609492B8B8606007F404E /* QuizViewModel.swift */; };
 		E706094D2B8B9C16007F404E /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706094C2B8B9C16007F404E /* ScoreViewModel.swift */; };
 		E706094F2B8BB071007F404E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706094E2B8BB070007F404E /* HomeViewModel.swift */; };
+		E7067AC12B8C20AB008B342A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7067AC02B8C20AB008B342A /* SplashViewController.swift */; };
 		E73262C02B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73262BF2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift */; };
 		E7481C562B8C075D00219F21 /* UIButtonCustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7481C552B8C075D00219F21 /* UIButtonCustomStyle.swift */; };
 		E7675E382B8BD55C00E372D1 /* ScoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7675E362B8BD55C00E372D1 /* ScoreDataModel.xcdatamodeld */; };
@@ -17,7 +18,6 @@
 		E7946C902B8A498400AEA7B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7946C8F2B8A498400AEA7B0 /* SceneDelegate.swift */; };
 		E7946C922B8A498400AEA7B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7946C912B8A498400AEA7B0 /* HomeViewController.swift */; };
 		E7946C972B8A498700AEA7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7946C962B8A498700AEA7B0 /* Assets.xcassets */; };
-		E7946C9A2B8A498700AEA7B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7946C982B8A498700AEA7B0 /* LaunchScreen.storyboard */; };
 		E794B3872B8A59DA00E797C3 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794B3862B8A59DA00E797C3 /* QuizViewController.swift */; };
 		E794B38A2B8A674D00E797C3 /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794B3892B8A674D00E797C3 /* QuizManager.swift */; };
 		E794B38C2B8A67ED00E797C3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794B38B2B8A67ED00E797C3 /* Question.swift */; };
@@ -41,6 +41,7 @@
 		E70609492B8B8606007F404E /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		E706094C2B8B9C16007F404E /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 		E706094E2B8BB070007F404E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E7067AC02B8C20AB008B342A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E73262BD2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Teste_Tecnico_iOS_Dynamox_ViewCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73262BF2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift; sourceTree = "<group>"; };
 		E7481C552B8C075D00219F21 /* UIButtonCustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonCustomStyle.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		E7946C8F2B8A498400AEA7B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E7946C912B8A498400AEA7B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E7946C962B8A498700AEA7B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7946C992B8A498700AEA7B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7946C9B2B8A498700AEA7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E794B3862B8A59DA00E797C3 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		E794B3892B8A674D00E797C3 /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
@@ -136,13 +136,13 @@
 			children = (
 				E7946C8D2B8A498400AEA7B0 /* AppDelegate.swift */,
 				E7946C8F2B8A498400AEA7B0 /* SceneDelegate.swift */,
+				E7067AC02B8C20AB008B342A /* SplashViewController.swift */,
 				E794B38D2B8A682000E797C3 /* Models */,
 				E706094B2B8B860D007F404E /* ViewModels */,
 				E794B3882B8A672E00E797C3 /* ViewControllers */,
 				E7675E392B8BD56500E372D1 /* Data */,
 				E7481C572B8C076900219F21 /* Styles */,
 				E7946C962B8A498700AEA7B0 /* Assets.xcassets */,
-				E7946C982B8A498700AEA7B0 /* LaunchScreen.storyboard */,
 				E7946C9B2B8A498700AEA7B0 /* Info.plist */,
 			);
 			path = Teste_Tecnico_iOS_Dynamox_ViewCode;
@@ -258,7 +258,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7946C9A2B8A498700AEA7B0 /* LaunchScreen.storyboard in Resources */,
 				E7946C972B8A498700AEA7B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +292,7 @@
 				E7F119C82B8BFC26000DE918 /* QuizManagerProtocol.swift in Sources */,
 				E794B3872B8A59DA00E797C3 /* QuizViewController.swift in Sources */,
 				E7FD2BEC2B8A96B400D030AC /* ScoreViewController.swift in Sources */,
+				E7067AC12B8C20AB008B342A /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,17 +305,6 @@
 			targetProxy = E73262C12B8ACFB400FC02F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E7946C982B8A498700AEA7B0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7946C992B8A498700AEA7B0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E73262C32B8ACFB400FC02F2 /* Debug */ = {
