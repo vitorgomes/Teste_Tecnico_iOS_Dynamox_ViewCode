@@ -34,8 +34,9 @@ class QuizViewModel {
             } else if let question = question {
                 self.question = question
                 completion(question)
+                // Prints for tests purposes, to registry all the activity on console
                 print("***")
-                print("Question number (in game): \(questionCounter + 1)") // Prints for tests purposes, to registry all the activity on console
+                print("Question number (in game): \(questionCounter + 1)")
             }
         }
     }
