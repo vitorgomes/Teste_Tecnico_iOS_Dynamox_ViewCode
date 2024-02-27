@@ -62,4 +62,4 @@ Welcome to the technical test project for building a Quiz! This test aims to eva
 
 ## Questions:
 
-- If you have any questions about the code, please contact me via email at vitorgomes_silva@outlook.com
+If you have any questions about the code, please contact me via email at vitorgomes_silva@outlook.com
