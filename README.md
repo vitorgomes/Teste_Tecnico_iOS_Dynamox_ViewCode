@@ -29,7 +29,7 @@ Bem-vindo(a) ao projeto de teste técnico de montagem de um Quiz! Este teste tem
 
 ## Dúvidas:
 
-- Se surgirem dúvidas sobre o código, entre em contato comigo através do meu email vitorgomes_silva@outlook.com
+Se surgirem dúvidas sobre o código, entre em contato comigo através do meu email vitorgomes_silva@outlook.com
 
 ---
 
