@@ -13,7 +13,7 @@ class SplashLoginViewController: UIViewController {
         let splashBackgroundImage = UIImageView()
         
         splashBackgroundImage.translatesAutoresizingMaskIntoConstraints = false
-        splashBackgroundImage.contentMode = .scaleAspectFit
+        splashBackgroundImage.contentMode = .scaleAspectFill
         splashBackgroundImage.image = UIImage(named: "splashBackground")
         
         return splashBackgroundImage
@@ -42,5 +42,27 @@ class SplashLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupViews()
+        animateSplash()
+    }
+    
+    private func setupViews() {
+        view.addSubview(splashBackgroundImage)
+        view.addSubview(cubeImage)
+        
+        NSLayoutConstraint.activate([
+            splashBackgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+            splashBackgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            splashBackgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            splashBackgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            cubeImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            cubeImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    private func animateSplash() {
+        
     }
 }
