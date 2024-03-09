@@ -8,7 +8,7 @@
 import UIKit
 
 class SplashLoginViewController: UIViewController {
-    
+
     private let splashBackgroundImage: UIImageView = {
         let splashBackgroundImage = UIImageView()
         
@@ -25,6 +25,7 @@ class SplashLoginViewController: UIViewController {
         cubeImage.translatesAutoresizingMaskIntoConstraints = false
         cubeImage.contentMode = .scaleAspectFit
         cubeImage.image = UIImage(named: "dynaPredictCube")
+        cubeImage.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
         
         return cubeImage
     }()
@@ -34,6 +35,7 @@ class SplashLoginViewController: UIViewController {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = "Quiz"
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .white
         
@@ -44,7 +46,7 @@ class SplashLoginViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
-        animateSplash()
+        animateCube()
     }
     
     private func setupViews() {
@@ -62,7 +64,40 @@ class SplashLoginViewController: UIViewController {
         ])
     }
     
-    private func animateSplash() {
+    private func animateCube() {
+        UIView.animate(withDuration: 0.8, delay: 0, options: [.autoreverse, .curveEaseInOut], animations: {
+            self.cubeImage.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+        }) { _ in
+            self.moveCubeLeft()
+        }
+    }
+    
+    private func moveCubeLeft() {
+        UIView.animate(withDuration: 0.5) {
+            NSLayoutConstraint.activate([self.cubeImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -30)])
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.titleLabelAppearance()
+        }
+    }
+    
+    private func titleLabelAppearance() {
+        view.addSubview(titleLabel)
         
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: cubeImage.trailingAnchor, constant: -40),
+            titleLabel.centerYAnchor.constraint(equalTo: cubeImage.centerYAnchor)
+        ])
+        
+        presentLoginViewControllerModally()
+    }
+    
+    private func presentLoginViewControllerModally() {
+        let loginViewController = LoginViewController()
+        
+        loginViewController.modalPresentationStyle = .pageSheet
+        loginViewController.sheetPresentationController?.detents = [.medium()]
+        
+        present(loginViewController, animated: true, completion: nil)
     }
 }

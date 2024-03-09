@@ -20,13 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         
-//         let splashViewController = SplashViewController()
-//        self.window?.rootViewController = splashViewController
-//        self.window?.makeKeyAndVisible()
-        
         let splashLoginViewController = SplashLoginViewController()
         self.window?.rootViewController = splashLoginViewController
         self.window?.makeKeyAndVisible()
+        
+//         let splashViewController = SplashViewController()
+//        self.window?.rootViewController = splashViewController
+//        self.window?.makeKeyAndVisible()
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            let navigationController = UINavigationController(rootViewController: HomeViewController())
