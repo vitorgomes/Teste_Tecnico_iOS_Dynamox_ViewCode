@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		E706094A2B8B8606007F404E /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70609492B8B8606007F404E /* QuizViewModel.swift */; };
 		E706094D2B8B9C16007F404E /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706094C2B8B9C16007F404E /* ScoreViewModel.swift */; };
-		E706094F2B8BB071007F404E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706094E2B8BB070007F404E /* HomeViewModel.swift */; };
-		E7067AC12B8C20AB008B342A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7067AC02B8C20AB008B342A /* SplashViewController.swift */; };
+		E706094F2B8BB071007F404E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E706094E2B8BB070007F404E /* LoginViewModel.swift */; };
 		E73262C02B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73262BF2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift */; };
 		E7481C562B8C075D00219F21 /* UIButtonCustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7481C552B8C075D00219F21 /* UIButtonCustomStyle.swift */; };
 		E7675E382B8BD55C00E372D1 /* ScoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7675E362B8BD55C00E372D1 /* ScoreDataModel.xcdatamodeld */; };
 		E7946C8E2B8A498400AEA7B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7946C8D2B8A498400AEA7B0 /* AppDelegate.swift */; };
 		E7946C902B8A498400AEA7B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7946C8F2B8A498400AEA7B0 /* SceneDelegate.swift */; };
-		E7946C922B8A498400AEA7B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7946C912B8A498400AEA7B0 /* HomeViewController.swift */; };
 		E7946C972B8A498700AEA7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7946C962B8A498700AEA7B0 /* Assets.xcassets */; };
 		E794B3872B8A59DA00E797C3 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794B3862B8A59DA00E797C3 /* QuizViewController.swift */; };
 		E794B38A2B8A674D00E797C3 /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E794B3892B8A674D00E797C3 /* QuizManager.swift */; };
@@ -42,8 +40,7 @@
 /* Begin PBXFileReference section */
 		E70609492B8B8606007F404E /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		E706094C2B8B9C16007F404E /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
-		E706094E2B8BB070007F404E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		E7067AC02B8C20AB008B342A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		E706094E2B8BB070007F404E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E73262BD2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Teste_Tecnico_iOS_Dynamox_ViewCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73262BF2B8ACFB400FC02F2 /* Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste_Tecnico_iOS_Dynamox_ViewCodeTests.swift; sourceTree = "<group>"; };
 		E7481C552B8C075D00219F21 /* UIButtonCustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonCustomStyle.swift; sourceTree = "<group>"; };
@@ -51,7 +48,6 @@
 		E7946C8A2B8A498400AEA7B0 /* Teste_Tecnico_iOS_Dynamox_ViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teste_Tecnico_iOS_Dynamox_ViewCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7946C8D2B8A498400AEA7B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7946C8F2B8A498400AEA7B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7946C912B8A498400AEA7B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E7946C962B8A498700AEA7B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7946C9B2B8A498700AEA7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E794B3862B8A59DA00E797C3 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +82,7 @@
 		E706094B2B8B860D007F404E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				E706094E2B8BB070007F404E /* HomeViewModel.swift */,
+				E706094E2B8BB070007F404E /* LoginViewModel.swift */,
 				E70609492B8B8606007F404E /* QuizViewModel.swift */,
 				E706094C2B8B9C16007F404E /* ScoreViewModel.swift */,
 			);
@@ -140,9 +136,6 @@
 			children = (
 				E7946C8D2B8A498400AEA7B0 /* AppDelegate.swift */,
 				E7946C8F2B8A498400AEA7B0 /* SceneDelegate.swift */,
-				E7067AC02B8C20AB008B342A /* SplashViewController.swift */,
-				E7A7A4E22B9929FD00B3C0FB /* SplashLoginViewController.swift */,
-				E7DE99E82B9BAA190071F8E6 /* LoginViewController.swift */,
 				E794B38D2B8A682000E797C3 /* Models */,
 				E706094B2B8B860D007F404E /* ViewModels */,
 				E794B3882B8A672E00E797C3 /* ViewControllers */,
@@ -157,7 +150,8 @@
 		E794B3882B8A672E00E797C3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7946C912B8A498400AEA7B0 /* HomeViewController.swift */,
+				E7A7A4E22B9929FD00B3C0FB /* SplashLoginViewController.swift */,
+				E7DE99E82B9BAA190071F8E6 /* LoginViewController.swift */,
 				E794B3862B8A59DA00E797C3 /* QuizViewController.swift */,
 				E7FD2BEB2B8A96B300D030AC /* ScoreViewController.swift */,
 			);
@@ -284,8 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DE99E92B9BAA190071F8E6 /* LoginViewController.swift in Sources */,
-				E7946C922B8A498400AEA7B0 /* HomeViewController.swift in Sources */,
-				E706094F2B8BB071007F404E /* HomeViewModel.swift in Sources */,
+				E706094F2B8BB071007F404E /* LoginViewModel.swift in Sources */,
 				E7F119CA2B8BFC4B000DE918 /* QuizManagerStub.swift in Sources */,
 				E7A7A4E32B9929FD00B3C0FB /* SplashLoginViewController.swift in Sources */,
 				E7481C562B8C075D00219F21 /* UIButtonCustomStyle.swift in Sources */,
@@ -300,7 +293,6 @@
 				E7F119C82B8BFC26000DE918 /* QuizManagerProtocol.swift in Sources */,
 				E794B3872B8A59DA00E797C3 /* QuizViewController.swift in Sources */,
 				E7FD2BEC2B8A96B400D030AC /* ScoreViewController.swift in Sources */,
-				E7067AC12B8C20AB008B342A /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

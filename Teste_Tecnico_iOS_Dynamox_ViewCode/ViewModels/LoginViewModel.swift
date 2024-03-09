@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel {
+class LoginViewModel {
     var userName: String = ""
     
     func startQuiz(completion: @escaping (QuizViewController) -> Void) {

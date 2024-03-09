@@ -35,7 +35,7 @@ class SplashLoginViewController: UIViewController {
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = "Quiz"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleLabel.textAlignment = .center
         titleLabel.textColor = .white
         
@@ -89,15 +89,33 @@ class SplashLoginViewController: UIViewController {
             titleLabel.centerYAnchor.constraint(equalTo: cubeImage.centerYAnchor)
         ])
         
+        self.view.layoutIfNeeded()
+        self.moveCubeAndTitleUp()
         presentLoginViewControllerModally()
     }
     
     private func presentLoginViewControllerModally() {
         let loginViewController = LoginViewController()
+        let navController = UINavigationController(rootViewController: loginViewController)
+
+        navController.modalPresentationStyle = .pageSheet
+        navController.sheetPresentationController?.detents = [.medium()]
         
-        loginViewController.modalPresentationStyle = .pageSheet
-        loginViewController.sheetPresentationController?.detents = [.medium()]
+        present(navController, animated: true)
+    }
+    
+    private func moveCubeAndTitleUp() {
+        let screenSize = UIScreen.main.bounds
+        let screenHeight = screenSize.height
+        let screenHeightTwentyFivePercent = screenHeight * -0.25
         
-        present(loginViewController, animated: true, completion: nil)
+        UIView.animate(withDuration: 0.5) {
+            NSLayoutConstraint.activate([
+                self.cubeImage.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: screenHeightTwentyFivePercent),
+                self.titleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: screenHeightTwentyFivePercent)
+            ])
+            
+            self.view.layoutIfNeeded()
+        }
     }
 }

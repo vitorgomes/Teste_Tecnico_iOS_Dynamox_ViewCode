@@ -23,7 +23,7 @@ class ScoreViewController: UIViewController {
     private let restartButton: UIButton = {
         let restartButton = UIButton(type: .system)
         
-        restartButton.systemBlueBackgroundWhiteTitleStyle(title: "Reiniciar")
+        restartButton.dynamoxBlueBackgroundWhiteTitleRoundedRectangleShapeStyle(title: "REINICIAR")
         restartButton.addTarget(self, action: #selector(restartButtonTapped), for: .touchUpInside)
         
         return restartButton
@@ -77,7 +77,7 @@ class ScoreViewController: UIViewController {
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
-        let restartButtonWidth = screenWidth * 0.8
+        let restartButtonWidth = screenWidth * 0.9
         
         NSLayoutConstraint.activate([
             scoreLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -104,7 +104,9 @@ class ScoreViewController: UIViewController {
     }
     
     @objc private func restartButtonTapped() {
-        navigationController?.popToRootViewController(animated: true)
+        let splashLoginViewController = SplashLoginViewController()
+        splashLoginViewController.modalPresentationStyle = .fullScreen
+        present(splashLoginViewController, animated: true)
     }
 }
 

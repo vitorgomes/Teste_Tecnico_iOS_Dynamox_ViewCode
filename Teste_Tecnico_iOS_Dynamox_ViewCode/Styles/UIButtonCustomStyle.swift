@@ -8,10 +8,12 @@
 import UIKit
 
 extension UIButton {
-    func systemBlueBackgroundWhiteTitleStyle(title: String) {
+    func dynamoxBlueBackgroundWhiteTitleRoundedRectangleShapeStyle(title: String) {
         setTitle(title, for: .normal)
         setTitleColor(.white, for: .normal)
-        backgroundColor = UIColor.systemBlue
+        backgroundColor = .defaultBlue
+        layer.cornerRadius = 10
+        clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

@@ -50,7 +50,7 @@ class QuizViewController: UIViewController {
     private let submitButton: UIButton = {
         let submitButton = UIButton(type: .system)
         
-        submitButton.systemBlueBackgroundWhiteTitleStyle(title: "Responder")
+        submitButton.dynamoxBlueBackgroundWhiteTitleRoundedRectangleShapeStyle(title: "RESPONDER")
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         
         return submitButton
@@ -84,6 +84,7 @@ class QuizViewController: UIViewController {
     }
     
     func setupViews() {
+        
         view.backgroundColor = .white
         
         view.addSubview(questionLabel)
@@ -95,7 +96,7 @@ class QuizViewController: UIViewController {
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
-        let submitButtonWidth = screenWidth * 0.8
+        let submitButtonWidth = screenWidth * 0.9
         
         NSLayoutConstraint.activate([
             questionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
@@ -178,7 +179,9 @@ class QuizViewController: UIViewController {
     private func navigateToScoreViewController() {
         let scoreViewModel = ScoreViewModel(userName: quizViewModel.userName, score: quizViewModel.score)
         let scoreViewController = ScoreViewController(viewModel: scoreViewModel)
-        navigationController?.pushViewController(scoreViewController, animated: true)
+
+        scoreViewController.modalPresentationStyle = .fullScreen
+        present(scoreViewController, animated: true)
     }
     
     private func showLoadingIndicator() {

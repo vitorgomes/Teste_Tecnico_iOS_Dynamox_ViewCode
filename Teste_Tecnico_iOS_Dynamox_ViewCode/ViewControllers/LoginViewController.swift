@@ -9,20 +9,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    // MARK: Views
+    private let loginViewModel = LoginViewModel()
     
+    // MARK: Views
     private let helloLabel: UILabel = {
         let helloLabel = UILabel()
         
         helloLabel.translatesAutoresizingMaskIntoConstraints = false
         helloLabel.text = "Olá!"
+        helloLabel.textColor = .defaultBlue
         helloLabel.font = UIFont.boldSystemFont(ofSize: 24)
         helloLabel.textAlignment = .center
         
         return helloLabel
     }()
     
-    private let userNameTextField: UITextField = {
+    private let userNameOrNicknameTextField: UITextField = {
         let userNameTextField = UITextField()
         
         userNameTextField.placeholder = "Digite seu nome ou apelido"
@@ -41,10 +43,9 @@ class LoginViewController: UIViewController {
     }()
     
     private let startButton: UIButton = {
-        let startButton = UIButton()
+        let startButton = UIButton(type: .system)
         
-        startButton.translatesAutoresizingMaskIntoConstraints = false
-        startButton.systemBlueBackgroundWhiteTitleStyle(title: "INICIAR")
+        startButton.dynamoxBlueBackgroundWhiteTitleRoundedRectangleShapeStyle(title: "INICIAR")
         startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         
         return startButton
@@ -69,12 +70,11 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: Functions
-    
     private func setupViews() {
         view.backgroundColor = .white
         
         view.addSubview(helloLabel)
-        view.addSubview(userNameTextField)
+        view.addSubview(userNameOrNicknameTextField)
         view.addSubview(dividerView)
         view.addSubview(startButton)
         view.addSubview(versionLabel)
@@ -88,13 +88,13 @@ class LoginViewController: UIViewController {
             helloLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             helloLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 24),
             
-            userNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            userNameTextField.topAnchor.constraint(equalTo: helloLabel.bottomAnchor, constant: 24),
-            userNameTextField.heightAnchor.constraint(equalToConstant: 48),
-            userNameTextField.widthAnchor.constraint(equalToConstant: eightyPercentWidth),
+            userNameOrNicknameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            userNameOrNicknameTextField.topAnchor.constraint(equalTo: helloLabel.bottomAnchor, constant: 24),
+            userNameOrNicknameTextField.heightAnchor.constraint(equalToConstant: 48),
+            userNameOrNicknameTextField.widthAnchor.constraint(equalToConstant: eightyPercentWidth),
             
             dividerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dividerView.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor),
+            dividerView.topAnchor.constraint(equalTo: userNameOrNicknameTextField.bottomAnchor),
             dividerView.heightAnchor.constraint(equalToConstant: 1),
             dividerView.widthAnchor.constraint(equalToConstant: eightyPercentWidth),
             
@@ -109,5 +109,12 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func startButtonTapped() {
+        guard let userName = userNameOrNicknameTextField.text else { return }
+        
+        loginViewModel.userName = userName
+        loginViewModel.startQuiz { [weak self] quizViewController in
+            quizViewController.modalPresentationStyle = .fullScreen
+            self?.present(quizViewController, animated: true)
+        }
     }
 }
